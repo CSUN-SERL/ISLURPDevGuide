@@ -1,3 +1,6 @@
 # ISLURP Software Architecture Overview
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+![](/assets/ISLURP Integration v1.5.jpg)
+
+The ISLURP software is based around the Ground Control Station (GCS) module. The GCS module manages and connects all other modules. 
+
