@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Getting Started](getting-started.md)
-    * Development Environment Setup
+    * [Development Environment Setup](development-environment-setup.md)
         * [Linux](linux.md)
         * [Jetson TK1](jetson-tk1.md)
     * [Building the code](building-the-code.md)

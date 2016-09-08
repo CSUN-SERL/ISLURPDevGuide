@@ -9,7 +9,7 @@ To get started, open a text editor of choice, copy the script into it and save i
 _Note: If you have already installed `ros-indigo-desktop-full` instead of `ros-indigo-desktop`, it is best to completely uninstall ROS and reinstall the correct version of ROS. Same goes for OpenCV. If you have version 2.4 of OpenCV installed, it's best to remove that as well. To purge your system of ROS and OpenCV before running the script, run `sudo apt-get purge ros-*`, `sudo apt-get purge libopencv`, and `sudo apt-get autoremove` in the terminal, respectively._
 
 ##### install-lcar-bot.sh
-``` shell
+```sh
 # Install ros-indigo-desktop (not full) by following the tutorial from the ROS wiki
 sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
