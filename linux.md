@@ -46,7 +46,8 @@ make
 sudo make install
 
 # /usr/local/include/libuvc/libuvc.h looks for libusb.h directly in an include
-# directory, so the next line is necesary
+# directory (/usr/local/include/libusb.h), so we need to create a link there
+# pointing to /usr/local/include/libusb-1.0/libusb.h
 sudo ln /usr/local/include/libusb-1.0/libusb.h /usr/local/include/libusb.h
 
 #------------------------------islurp---------------------------------
@@ -56,17 +57,19 @@ echo -e "\033[32m Cloning ISLURP repo\033[0m"
 cd ~/Documents
 git clone https://github.com/csun-serl/lcar-bot.git
 cd lcar-bot
-source ~/.bashrc
+catkin_make
 echo "source ~/Documents/lcar-bot/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 
-# Lastly, we need to modify the udev rules. Add the following code to a new file called `LI_Stereo.rules` and save it in the `/etc/udev/rules.d` directory:
+# Lastly, we need to modify the udev rules for the stereo camera
 udev_rules='SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"'
 
 sudo sh -c "echo '$udev_rules' > /etc/udev/rules.d/li_stereo.rules"
 
 # ----------------------------DONE-----------------------------------
 
-sudo rm -rf ~/islurp-files
+sudo rm -rf ~/islurp-
+
 echo -e "\033[32m DONE\033[0m"
 
 ```
