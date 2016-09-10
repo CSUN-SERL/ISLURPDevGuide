@@ -30,7 +30,7 @@ tar jxf libusb.tar.bz2
 cd libusb-1.0.9
 ./configure
 make
-make install
+sudo make install
 
 #-------------------------------libuvc-------------------------------
 
@@ -43,7 +43,7 @@ mkdir build
 cd build
 cmake -D CMAKE_INSTALL_PREFIX=/usr/local ..
 make
-make install
+sudo make install
 
 #------------------------------islurp---------------------------------
 
