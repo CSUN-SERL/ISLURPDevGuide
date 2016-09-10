@@ -57,7 +57,7 @@ echo "source ~/Documents/lcar-bot/devel/setup.bash" >> ~/.bashrc
 
 # Lastly, we need to modify the udev rules. Add the following code to a new file called `LI_Stereo.rules` and save it in the `/etc/udev/rules.d` directory:
 
-sudo echo 'SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"' > /etc/udev/rules.d/li_stereo.rules
+sudo sh -c echo 'SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"' > /etc/udev/rules.d/li_stereo.rules
 
 # ----------------------------DONE-----------------------------------
 
