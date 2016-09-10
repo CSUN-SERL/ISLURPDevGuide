@@ -11,11 +11,23 @@ To get started, open a text editor of choice, copy the script into it and save i
 
 echo -e "\033[32m Installing ROS Kinetic\033[0m"
 
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
+file="/etc/apt/sources/list.d/ros-latest.list"
+if [ ! -f  $file]; then
+  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources/list.d/ros-latest.list'
+fi
+
+key="0xB01FA116"
+if [ `apt-key list | grep $key | wc -c` -eq 0]; then
+  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key $key
+fi
 sudo apt update
 sudo apt install -y ros-kinetic-desktop-full ros-kinetic-mavros*
-sudo rosdep init
+
+file="/etc/ros/rosdep/sources.list.d/20-default.list"
+if [ ! -e $file]; then
+  sudo rosdep init
+fi
+
 rosdep update
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
@@ -61,10 +73,13 @@ catkin_make
 echo "source ~/Documents/lcar-bot/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
-# Lastly, we need to modify the udev rules for the stereo camera
-udev_rules='SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"'
+# Lastly, we need to modify the udev rules for the stereo
+file='/etc/udev/rules.d/li_stereo.rules'
+if[ ! -e $file]; then
+  udev_rules='SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"'
 
-sudo sh -c "echo '$udev_rules' > /etc/udev/rules.d/li_stereo.rules"
+  sudo sh -c 'echo $udev_rules > /etc/udev/rules.d/li_stereo.rules'
+fi
 
 # ----------------------------DONE-----------------------------------
 
