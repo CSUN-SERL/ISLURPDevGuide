@@ -45,6 +45,10 @@ cmake -D CMAKE_INSTALL_PREFIX=/usr/local ..
 make
 sudo make install
 
+# /usr/local/include/libuvc/libuvc.h looks for libusb.h directly in an include
+# directory, so the next line is necesary
+sudo ln /usr/local/include/libusb-1.0/libusb.h /usr/local/include/libusb.h
+
 #------------------------------islurp---------------------------------
 
 echo -e "\033[32m Cloning ISLURP repo\033[0m"
