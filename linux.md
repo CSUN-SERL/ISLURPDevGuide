@@ -14,7 +14,7 @@ echo -e "\033[32m Installing ROS Kinetic\033[0m"
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
 sudo apt update
-sudo apt install -y ros-kinetic-desktop-full
+sudo apt install -y ros-kinetic-desktop-full ros-kinetic-mavros*
 sudo rosdep init
 rosdep update
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
