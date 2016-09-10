@@ -48,7 +48,7 @@ sudo make install
 # /usr/local/include/libuvc/libuvc.h looks for libusb.h directly in an include
 # directory (/usr/local/include/libusb.h), so we need to create a link there
 # pointing to /usr/local/include/libusb-1.0/libusb.h
-sudo ln /usr/local/include/libusb-1.0/libusb.h /usr/local/include/libusb.h
+sudo ln -f /usr/local/include/libusb-1.0/libusb.h /usr/local/include/libusb.h
 
 #------------------------------islurp---------------------------------
 
