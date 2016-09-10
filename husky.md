@@ -22,7 +22,7 @@ fi
 rosdep update
 
 setup_string="/opt/ros/kinetic/setup.bash"
-if ! grep -q "$setup_string" ~/.bashrc ]; then
+if ! grep -q "$setup_string" ~/.bashrc ; then
   echo "source $setup_string" >> ~/.bashrc
   source ~/.bashrc
 fi
