@@ -8,7 +8,8 @@ To get started, open a text editor of choice, copy the script into it and save i
 
 ##### install-lcar-bot.sh
 ```sh
-echo -e "\033[32m Installing ROS Kinetic"
+
+echo -e "\033[32m Installing ROS Kinetic\033[0m"
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 0xB01FA116
@@ -32,6 +33,7 @@ make
 make install
 
 #-------------------------------libuvc-------------------------------
+
 echo -e "\033[32m Installing libuvc"
 
 cd ~/islurp-files
@@ -44,7 +46,8 @@ make
 make install
 
 #------------------------------islurp---------------------------------
-echo -e "\033[32m Cloning ISLURP repo"
+
+echo -e "\033[32m Cloning ISLURP repo\033[0m"
 
 cd ~/Documents
 git clone https://github.com/csun-serl/lcar-bot.git
@@ -59,6 +62,6 @@ sudo echo "SUBSYSTEMS=='usb', ATTRS{manufacturer}=='Leopard Imaging', ATTRS{prod
 # ----------------------------DONE-----------------------------------
 
 sudo rm -rf ~/islurp-files
-echo -e "\033[32m DONE"
+echo -e "\033[32m DONE\033[0m"
 
 ```
