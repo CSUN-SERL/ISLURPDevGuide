@@ -27,23 +27,20 @@ catkin_space="$islurp_deps_dir/husky"
 if [ ! -e $file ]; then
   mkdir -p "$catkin_space/src"
   cd "$catkin_space/src"
-  catkin_init_workspace
   git clone https://github.com/husky/husky.git
   git clone https://github.com/ros-visualization/interactive_marker_twist_server
-  tar -cjf $file husky
   cd $islurp_deps_dir
+  tar -cjf $file husky
   rm -rf $catkin_space
 fi
 
-tar jxf $file
-cd husky
-mkdir src
-cd src
+tar -jxf $file
+cd "$catkin_space/src"
 catkin_init_workspace
 cd ..
-catkin_make -DCMAKE_INSTALL_PREFIX="$opt_dir" install
+catkin_make -DCMAKE_INSTALL_PREFIX=$opt_dir install
 
-rm -rf "$islurp_deps_dir/husky"
+rm -rf $catkin_space
 
 setup_string="$opt_dir/setup.bash"
 if ! grep -q "$setup_string" ~/.bashrc; then
@@ -51,5 +48,6 @@ if ! grep -q "$setup_string" ~/.bashrc; then
 fi
 
 echo -e "\033[32m DONE\033[0m"
+
 
 ```
