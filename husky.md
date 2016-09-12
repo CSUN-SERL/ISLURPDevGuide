@@ -1,4 +1,8 @@
 
+The Husky ground rover is not supported by default on ros-kinetic, but the
+source code is available for download, compilation and installation into ROS.
+This script does that. dont forget to `chmod +x install-husky.sh` first.
+
 ##### [install-husky.sh](install-husky.sh)
 ```sh
 

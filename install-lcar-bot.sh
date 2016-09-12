@@ -41,6 +41,7 @@ cmake -D CMAKE_INSTALL_PREFIX=/usr/local ..
 make
 sudo make install
 rm -rf "$islurp_deps_dir/libuvc"
+
 # /usr/local/include/libuvc/libuvc.h looks for libusb.h directly in an include
 # directory (/usr/local/include/libusb.h), so we need to create a link there
 # pointing to /usr/local/include/libusb-1.0/libusb.h
