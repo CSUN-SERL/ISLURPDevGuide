@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Getting Started](getting-started.md)
     * [Development Environment Setup](development-environment-setup.md)
-        * [Linux](linux.md)
+        * [General Setup](general-setup.md)
         * [Jetson TK1](jetson-tk1.md)
         * [Husky](husky.md)
     * [Building the code](building-the-code.md)

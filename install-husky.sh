@@ -1,7 +1,3 @@
-
-##### [install-husky.sh](install-husky.sh)
-```sh
-
 # from apt:
 # ros-kinetic-control*
 # ros-kinetic-robot-localization
@@ -50,6 +46,3 @@ if ! grep -q "$setup_string" ~/.bashrc; then
 fi
 
 echo -e "\033[32m DONE\033[0m"
-
-
-```

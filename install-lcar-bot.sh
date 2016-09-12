@@ -1,41 +1,3 @@
-## Summary
-It is very important to install all the required dependencies before running any of the code presented in this repository. The required dependencies have been organized by their respective section of the project. As a start, we recommend installing Ubuntu 14.04 LTS 64-bit.
-
-The following shell script automates most of the process for setting up the development environment for the project. If your Linux installation is free of ROS and OpenCV, you can just run the script to install all the dependencies.
-
-In short, the following script will download and install `ros-kinetic-desktop-full`  and `libuvc` from source. All downloaded files are located in `~/Documents`.
-To get started, open a text editor of choice, copy the script into it and save it as `install-lcar-bot.sh` to `~/Documents` and close. Then open a new terminal and type `chmod +x install-lcar-bot.sh`. Lastly, type `./install-lcar-bot.sh` and hit enter. Sit back and relax, the script will take some time to finish.
-
-##### install-lcar-bot.sh
-```sh
-echo -e "\033[32m Installing ROS Kinetic\033[0m"
-
-file="/etc/apt/sources.list.d/ros-latest.list"
-if [ ! -f  $file ]; then
-  sudo sh -c "echo 'deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main' > $file"
-fi
-
-key=0xB01FA116
-if ! apt-key list | grep -q $key; then
-  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key $key
-fi
-
-sudo apt update
-sudo apt install -y ros-kinetic-desktop-full ros-kinetic-mavros*
-
-file="/etc/ros/rosdep/sources.list.d/20-default.list"
-if [ ! -e $file ]; then
-  sudo rosdep init
-fi
-
-rosdep update
-
-setup_string="/opt/ros/kinetic/setup.bash"
-if ! grep -q "$setup_string" ~/.bashrc ; then
-  echo "source $setup_string" >> ~/.bashrc
-  source ~/.bashrc
-fi
-sudo apt install -y python-rosinstall
 
 #-------------------------------libusb--------------------------------
 
@@ -54,6 +16,10 @@ cd libusb-1.0.9
 make
 sudo make install
 rm -rf "$islurp_deps_dir/libusb-1.0.9"
+
+sudo apt install libusb-dev
+
+
 
 #-------------------------------libuvc-------------------------------
 
@@ -108,9 +74,4 @@ if [ ! -e $file ]; then
   sudo sh -c "echo s$udev_rules > $file"
 fi
 
-# ----------------------------DONE-----------------------------------
-
 echo -e "\033[32m DONE\033[0m"
-
-
-```
