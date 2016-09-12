@@ -8,7 +8,6 @@ To get started, open a text editor of choice, copy the script into it and save i
 
 ##### install-lcar-bot.sh
 ```sh
-
 echo -e "\033[32m Installing ROS Kinetic\033[0m"
 
 file="/etc/apt/sources.list.d/ros-latest.list"
@@ -46,82 +45,7 @@ mkdir -p $islurp_deps_dir
 cd $islurp_deps_dir
 file="$islurp_deps_dir/libusb.tar.bz2"
 if [ ! -e $file ]; then
-  wget -N -O libusb.tar.bz2 https://sourceecho -e "\033[32m Installing ROS Kinetic\033[0m"
-
-file="/etc/apt/sources/list.d/ros-latest.list"
-if [ ! -f  $file]; then
-  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources/list.d/ros-latest.list'
-fi
-
-key="0xB01FA116"
-if [ `apt-key list | grep $key | wc -c` -eq 0]; then
-  sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key $key
-fi
-sudo apt update
-sudo apt install -y ros-kinetic-desktop-full ros-kinetic-mavros*
-
-file="/etc/ros/rosdep/sources.list.d/20-default.list"
-if [ ! -e $file]; then
-  sudo rosdep init
-fi
-
-rosdep update
-echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-sudo apt install -y python-rosinstall
-
-#-------------------------------libusb--------------------------------
-
-mkdir -p ~/islurp-files
-cd ~/islurp-files
-wget -N -O libusb.tar.bz2 https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-1.0.9/libusb-1.0.9.tar.bz2/download
-tar jxf libusb.tar.bz2
-cd libusb-1.0.9
-./configure
-make
-sudo make install
-
-#-------------------------------libuvc-------------------------------
-
-echo -e "\033[32m Installing libuvc\033[0m"
-
-cd ~/islurp-files
-git clone https://github.com/ktossell/libuvc.git
-cd libuvc
-mkdir build
-cd build
-cmake -D CMAKE_INSTALL_PREFIX=/usr/local ..
-make
-sudo make install
-
-# /usr/local/include/libuvc/libuvc.h looks for libusb.h directly in an include
-# directory (/usr/local/include/libusb.h), so we need to create a link there
-# pointing to /usr/local/include/libusb-1.0/libusb.h
-sudo ln -f /usr/local/include/libusb-1.0/libusb.h /usr/local/include/libusb.h
-
-#------------------------------islurp---------------------------------
-
-echo -e "\033[32m Cloning ISLURP repo\033[0m"
-
-cd ~/Documents
-git clone https://github.com/csun-serl/lcar-bot.git
-cd lcar-bot
-catkin_make
-echo "source ~/Documents/lcar-bot/devel/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-
-# Lastly, we need to modify the udev rules for the stereo
-file='/etc/udev/rules.d/li_stereo.rules'
-if[ ! -e $file]; then
-  udev_rules='SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"'
-  sudo sh -c 'echo $udev_rules > /etc/udev/rules.d/li_stereo.rules'
-fi
-
-# ----------------------------DONE-----------------------------------
-
-sudo rm -rf ~/islurp-
-
-echo -e "\033[32m DONE\033[0m"forge.net/projects/libusb/files/libusb-1.0/libusb-1.0.9/libusb-1.0.9.tar.bz2/download
+  wget -N -O libusb.tar.bz2 https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-1.0.9/libusb-1.0.9.tar.bz2/download
 fi
 
 tar jxf $file
@@ -181,7 +105,7 @@ fi
 file="/etc/udev/rules.d/li_stereo.rules"
 if [ ! -e $file ]; then
   udev_rules='SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"'
-  sudo sh -c "echo $udev_rules > /etc/udev/rules.d/li_stereo.rules"
+  sudo sh -c "echo s$udev_rules > $file"
 fi
 
 # ----------------------------DONE-----------------------------------
