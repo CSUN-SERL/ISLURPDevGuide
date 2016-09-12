@@ -72,7 +72,7 @@ fi
 file="/etc/udev/rules.d/li_stereo.rules"
 if [ ! -e $file ]; then
   udev_rules='SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"'
-  sudo sh -c "echo s$udev_rules > $file"
+  sudo sh -c "echo $udev_rules > $file"
 fi
 
 echo -e "\033[32m DONE\033[0m"
