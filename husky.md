@@ -1,15 +1,15 @@
 
 The Husky ground rover is not supported by default on ros-kinetic, but the
 source code is available for download, compilation and installation into ROS.
-This script does that. dont forget to `chmod +x install-husky.sh` first.
+This script does that. Don't forget to `chmod +x install-husky.sh` first.
 
 ##### [install-husky.sh](install-husky.sh)
 ```sh
 
 # from apt:
-# ros-kinetic-control*
-# ros-kinetic-robot-localization
-# ros-kinetic-interactive-marker*
+#   ros-kinetic-control*
+#   ros-kinetic-robot-localization
+#   ros-kinetic-interactive-marker*
 
 # from source:
 #   interactive-marker-twist-server
@@ -40,6 +40,7 @@ if [ ! -e $file ]; then
   rm -rf $catkin_space
 fi
 
+cd $islurp_deps_dir
 tar -jxf $file
 cd "$catkin_space/src"
 catkin_init_workspace
@@ -54,6 +55,5 @@ if ! grep -q "$setup_string" ~/.bashrc; then
 fi
 
 echo -e "\033[32m DONE\033[0m"
-
 
 ```

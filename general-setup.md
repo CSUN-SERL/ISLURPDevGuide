@@ -1,9 +1,9 @@
 ## Summary
-It is very important to install all the required dependencies before running any of the code presented in this repository. The required dependencies have been organized by their respective section of the project. As a start, we recommend installing Ubuntu 16.04 LTS 64-bit.
+It is important to install all the required dependencies before running any of the code presented in this repository. The required dependencies have been organized by their respective section of the project. As a start, you need to install Ubuntu 16.04 LTS 64-bit.
 
 The following two shell scripts automate most of the process for setting up the development environment for the project. `install-ros.sh` will download and install `ros-kinetic-desktop-full` and  `ros-kinetic-mavros`, which isn't included with desktop-full. `install-lcar-bot.sh` will download and `libuvc` and `libusb` from source, followed by `lcar-bot`. `lcar-bot` is located in `~/Documents`. If you are not working on the lcar-bot repository directly, you can skip running `install-lcar-bot.sh`.
 
-To get started, open a text editor of choice, copy each script into its own file. Save the first as `install-ros.sh` in `~/Documents`. Save the second as `install-lcar-bot.sh` and save it the same directory. Then open a new terminal and type `chmod +x install-ros.sh install-lcar-bot.sh`. Lastly, type `./install-lcar-bot.sh` and hit enter. Sit back and relax, the script will take some time to finish.
+To get started, open a text editor of choice, copy each script into its own file. Save the first as `install-ros.sh` in `~/Documents`. Save the second as `install-lcar-bot.sh` to the same directory. Then open a new terminal and type `chmod +x install-ros.sh install-lcar-bot.sh`. Lastly, type `./install-ros.sh` and hit enter, followed by `./install-lcar-bot.sh` is installing the `lcar-bot` repository. Sit back and relax, the script will take some time to finish.
 
 ##### [install-ros.sh](install-ros.sh)
 ```sh

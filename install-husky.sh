@@ -1,7 +1,7 @@
 # from apt:
-# ros-kinetic-control*
-# ros-kinetic-robot-localization
-# ros-kinetic-interactive-marker*
+#   ros-kinetic-control*
+#   ros-kinetic-robot-localization
+#   ros-kinetic-interactive-marker*
 
 # from source:
 #   interactive-marker-twist-server
@@ -32,6 +32,7 @@ if [ ! -e $file ]; then
   rm -rf $catkin_space
 fi
 
+cd $islurp_deps_dir
 tar -jxf $file
 cd "$catkin_space/src"
 catkin_init_workspace
