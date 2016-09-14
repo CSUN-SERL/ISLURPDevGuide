@@ -75,4 +75,8 @@ if [ ! -e $file ]; then
   sudo sh -c "echo $udev_rules > $file"
 fi
 
+dir="$HOME/Documents/lcar-bot/resources"
+sudo ln -s $dir/lcar-bot /usr/local/bin/lcar-bot
+sudo ln -s $dir/lcar-fleet /usr/local/bin/lcar-fleet
+
 echo -e "\033[32m DONE\033[0m"
