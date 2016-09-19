@@ -52,6 +52,7 @@ rm -rf $catkin_space
 setup_string="$opt_dir/setup.bash"
 if ! grep -q "$setup_string" ~/.bashrc; then
   echo "source $opt_dir/setup.bash" >> ~/.bashrc
+  source ~/.bashrc
 fi
 
 echo -e "\033[32m DONE\033[0m"
