@@ -4,7 +4,7 @@ It is important to install all the required dependencies before running any of t
 The following two shell scripts automate most of the process for setting up the development environment for the project. `install-ros.sh` will download and install `ros-kinetic-desktop-full` and  `ros-kinetic-mavros`, which isn't included with desktop-full. `install-lcar-bot.sh` will download and install `libuvc` and `libusb` from source, followed by the `lcar-bot` code repository. The script will store the `lcar-bot` repository in `~/Documents`. If you are not working on the lcar-bot repository directly, you can skip running `install-lcar-bot.sh`.
 
 To get started, save the shell script to your computer by right-clicking on the file name and choosing "Save Link As" or "Save Target As". Alternatively, you can copy and paste the contents of the shell script into a text editor of choice and save the file. Then open a new terminal, change directory to the same folder as the saved file, and run the following commands, one by one, in the terminal for each shell script (remember to change the file names appropriately).
-```shell
+```sh
 chmod +x install-ros.sh
 ./install-ros.sh
 ```
