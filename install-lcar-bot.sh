@@ -19,8 +19,6 @@ rm -rf "$islurp_deps_dir/libusb-1.0.9"
 
 sudo apt install libusb-dev
 
-
-
 #-------------------------------libuvc-------------------------------
 
 echo -e "\033[32m Installing libuvc\033[0m"
@@ -71,7 +69,7 @@ fi
 # Lastly, we need to modify the udev rules for the stereo
 file="/etc/udev/rules.d/li_stereo.rules"
 if [ ! -e $file ]; then
-  udev_rules='SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Leopard Imaging", ATTRS{product}=="LI-STEREO", GROUP:="video"'
+  udev_rules='SUBSYSTEMS==\"usb\", ATTRS{manufacturer}==\"Leopard Imaging\", ATTRS{product}==\"LI-STEREO\", GROUP:=\"video\"'
   sudo sh -c "echo $udev_rules > $file"
 fi
 
