@@ -1,10 +1,16 @@
 ## Summary
 It is important to install all the required dependencies before running any of the code presented in this repository. The required dependencies have been organized by their respective section of the project. As a start, you need to install Ubuntu 16.04 LTS 64-bit.
 
-The following two shell scripts automate most of the process for setting up the development environment for the project. `install-ros.sh` will download and install `ros-kinetic-desktop-full` and  `ros-kinetic-mavros`, which isn't included with desktop-full. `install-lcar-bot.sh` will download and `libuvc` and `libusb` from source, followed by `lcar-bot`. `lcar-bot` is located in `~/Documents`. If you are not working on the lcar-bot repository directly, you can skip running `install-lcar-bot.sh`.
+The following two shell scripts automate most of the process for setting up the development environment for the project. `install-ros.sh` will download and install `ros-kinetic-desktop-full` and  `ros-kinetic-mavros`, which isn't included with desktop-full. `install-lcar-bot.sh` will download and install `libuvc` and `libusb` from source, followed by the `lcar-bot` code repository. The script will store the `lcar-bot` repository in `~/Documents`. If you are not working on the lcar-bot repository directly, you can skip running `install-lcar-bot.sh`.
 
-To get started, open a text editor of choice, copy each script into its own file. Save the first as `install-ros.sh` in `~/Documents`. Save the second as `install-lcar-bot.sh` to the same directory. Then open a new terminal and type `chmod +x install-ros.sh install-lcar-bot.sh`. Lastly, type `./install-ros.sh` and hit enter, followed by `./install-lcar-bot.sh` is installing the `lcar-bot` repository. Sit back and relax, the script will take some time to finish.
+To get started, save the shell script to your computer by right-clicking on the file name and choosing "Save Link As" or "Save Target As". Alternatively, you can copy and paste the contents of the shell script into a text editor of choice and save the file. Then open a new terminal, change directory to the same folder as the saved file, and run the following commands, one by one, in the terminal for each shell script (remember to change the file names appropriately).
+```shell
+chmod +x install-ros.sh
+./install-ros.sh
+```
+Sit back and relax, the script will take some time to finish.
 
+---
 ##### [install-ros.sh](install-ros.sh)
 ```sh
 
@@ -87,5 +93,6 @@ sudo ln -s $dir/lcar-bot /usr/local/bin/lcar-bot
 sudo ln -s $dir/lcar-fleet /usr/local/bin/lcar-fleet
 
 echo -e "\033[32m DONE\033[0m"
+
 
 ```
