@@ -53,7 +53,21 @@ echo -e "\033[32m DONE\033[0m"
 
 #-------------------------------libusb--------------------------------
 
-sudo apt install libusb-dev
+islurp_deps_dir="$HOME/.islurp_deps"
+mkdir -p $islurp_deps_dir
+
+cd $islurp_deps_dir
+file="$islurp_deps_dir/libusb.tar.bz2"
+if [ ! -e $file ]; then
+  wget -N -O libusb.tar.bz2 https://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-1.0.9/libusb-1.0.9.tar.bz2/download
+fi
+
+tar jxf $file
+cd libusb-1.0.9
+./configure
+make
+sudo make install
+rm -rf "$islurp_deps_dir/libusb-1.0.9"
 
 #-------------------------------libuvc-------------------------------
 
@@ -77,11 +91,11 @@ sudo make install
 rm -rf "$islurp_deps_dir/libuvc"
 
 # /usr/local/include/libuvc/libuvc.h looks for libusb.h directly in an include
-# directory (/usr/include/libusb.h), so we need to create a link there
-# pointing to /usr/include/libusb.h
-file="/usr/include/libusb.h"
+# directory (/usr/local/include/libusb.h), so we need to create a link there
+# pointing to /usr/local/include/libusb-1.0/libusb.h
+file="/usr/local/include/libusb.h"
 if [ ! -e $file ]; then
-  sudo ln -s /usr/include/usb.h $file
+  sudo ln -s /usr/local/include/libusb-1.0/libusb.h $file
 fi
 
 #------------------------------islurp---------------------------------
