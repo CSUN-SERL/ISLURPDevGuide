@@ -1,50 +1,22 @@
-# from apt:
-#   ros-kinetic-control*
-#   ros-kinetic-robot-localization
-#   ros-kinetic-interactive-marker*
+echo -e "\033[32m ----------Creating Workspace----------\033[0m"
+mkdir ~/Documents/husky_kinetic
+cd ~/Documents/husky_kinetic
+wget https://raw.githubusercontent.com/CSUN-SERL/ISLURPDevguide/master/kinetic-husky-wet.rosinstall
 
-# from source:
-#   interactive-marker-twist-server
-#   husky
-islurp_deps_dir="$HOME/.islurp_deps"
-mkdir -p $islurp_deps_dir
+echo -e "\033[32m ----------Downloading Source Code----------\033[0m"
+# Get the source code
+wstool init src kinetic-husky-wet.rosinstall
 
-opt_dir="/opt/ros/kinetic_src"
-sudo mkdir -p $opt_dir
-sudo chown $USER.$USER $opt_dir
+echo -e "\033[32m ----------Installing Dependencies----------\033[0m"
+# Install Dependencies (ignore errors)
+rosdep install --from-paths src --ignore-src --rosdistro kinetic -y -r
 
-file="/etc/ros/rosdep/sources.list.d/20-default.list"
-if [ ! -e $file ]; then
-  sudo rosdep init
-fi
-rosdep update
-sudo apt install -y ros-kinetic-control* ros-kinetic-robot-localization ros-kinetic-interactive-marker* ros-kinetic-twist-mux
-
-file="$islurp_deps_dir/husky.tar.bz2"
-catkin_space="$islurp_deps_dir/husky"
-if [ ! -e $file ]; then
-  mkdir -p "$catkin_space/src"
-  cd "$catkin_space/src"
-  git clone https://github.com/husky/husky.git
-  git clone https://github.com/ros-visualization/interactive_marker_twist_server
-  cd $islurp_deps_dir
-  tar -cjf $file husky
-  rm -rf $catkin_space
-fi
-
-cd $islurp_deps_dir
-tar -jxf $file
-cd "$catkin_space/src"
+# Setup the catkin workspace
 catkin_init_workspace
-cd ..
-catkin_make -DCMAKE_INSTALL_PREFIX=$opt_dir install
+catkin_make
 
-rm -rf $catkin_space
+echo "source ~/Documents/husky_kinetic/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 
-setup_string="$opt_dir/setup.bash"
-if ! grep -q "$setup_string" ~/.bashrc; then
-  echo "source $opt_dir/setup.bash" >> ~/.bashrc
-  source ~/.bashrc
-fi
+echo -e "\033[32m ----------DONE----------\033[0m"
 
-echo -e "\033[32m DONE\033[0m"
