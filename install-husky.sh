@@ -12,7 +12,9 @@ echo -e "\033[32m ----------Installing Dependencies----------\033[0m"
 rosdep install --from-paths src --ignore-src --rosdistro kinetic -y -r
 
 # Setup the catkin workspace
+cd src
 catkin_init_workspace
+cd ..
 catkin_make
 
 echo "source ~/Documents/husky_kinetic/devel/setup.bash" >> ~/.bashrc
