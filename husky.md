@@ -1,6 +1,4 @@
-The Husky ground rover is not supported by default on ros-kinetic, but the
-source code is available for download, compilation and installation into ROS.
-This script does that. Don't forget to `chmod +x install-husky.sh` first.
+The Husky ground rover is not supported by default on ROS Kinetic. Fortunately, however, the source code is available for download, compilation and installation into ROS. The following script does just that. Don't forget to run `chmod +x install-husky.sh` before executing the script in the terminal.
 
 ##### [install-husky.sh](install-husky.sh)
 
@@ -29,3 +27,6 @@ source ~/.bashrc
 echo -e "\033[32m ----------DONE----------\033[0m"
 ```
 
+To ensure that everything works as intended after the script has finished, follow the [Husky Move Base Demo](http://wiki.ros.org/husky_navigation/Tutorials/Husky%20Move%20Base%20Demo). You should see something similar to the following picture:
+
+![Husky Gazebo Simulation on ROS Kinetic](assets/husky-kinetic.png "Logo Title Text 1")
