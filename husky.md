@@ -4,7 +4,7 @@ The Husky ground rover is not supported by default on ROS Kinetic. Fortunately, 
 
 ```sh
 echo -e "\033[32m ----------Creating Workspace----------\033[0m"
-mkdir ~/Documents/husky_kinetic
+mkdir ~/Documents/husky_kineticj
 cd ~/Documents/husky_kinetic
 wget https://raw.githubusercontent.com/CSUN-SERL/ISLURPDevguide/master/kinetic-husky-wet.rosinstall
 
@@ -30,3 +30,4 @@ echo -e "\033[32m ----------DONE----------\033[0m"
 To ensure that everything works as intended after the script has finished, follow the [Husky Move Base Demo](http://wiki.ros.org/husky_navigation/Tutorials/Husky%20Move%20Base%20Demo). You should see something similar to the following picture:
 
 ![Husky Gazebo Simulation on ROS Kinetic](assets/husky-kinetic.png "Logo Title Text 1")
+

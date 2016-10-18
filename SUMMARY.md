@@ -15,4 +15,5 @@
     * [Object Detection](object-detection.md)
 * [Ground Control Station](ground-control-station.md)
     * [Styling](styling.md)
+    * [Vehicle Naming Convention](vehicle-naming-convention.md)
 
