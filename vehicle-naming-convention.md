@@ -1,6 +1,6 @@
 # Summary
 
-The identification of a vehicle in the physical world vs one in the Ground Control Station is an important distinction.This section will cover the creation and management of physical vehicles using proper naming conventions.
+The identification of a vehicle in the physical world vs one in a computer database is an important distinction. This section will cover naming conventions for the initialization, organization, and usage of vehicles.
 
 # Organization
 
