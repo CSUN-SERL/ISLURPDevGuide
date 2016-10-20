@@ -1,18 +1,6 @@
-## Summary
+## Quadrotor Summary
 
-This section explains the process used to transition from simulation to testing with live vehicles. It is very important to thoroughly study the safety guidelines before performing any testing with a physical vehicle.
-
-## Mobile Ground Control Station \(MGCS\) Setup
-
-Before getting started with the project, it is important to have a proper workstation setup with all the required dependencies installed. If you have not already, please follow the development environment setup guide on [this](https://github.com/kPanesar/lcar-bot/wiki/Development-Environment-Setup) page.
-
-**GCS Computer Specifications:**
-
-* **CPU:** Intel Core i7 4770
-* **Motherboard:** Asus Z97 Mini ITX w\/ WiFi
-* **Graphics Card:** EVGA GTX 970
-* **Storage:** Samsung 500GB SSD
-* **Display:** x2 27" Monitors
+This page covers the setup process for Quadrotor UAVs. Quadrotors have 4 propellers and two onboard computers, the Nvidia Jetson TK1 and the Pixhawk Flight Controller. The Nvidia Jetson TK1 is mostly responsible for managing motion tracking data of the vehicle and the Pixhawk is responsible for using sensors and controlling the vehicle. The quadcopters use OptiTrack motion tracking cameras for positioning during indoor missions and GPS for positioning during outdoor missions.
 
 ## Companion Computer Setup
 
@@ -26,7 +14,7 @@ Before getting started with the project, it is important to have a proper workst
 * 1 Full-Size HDMI Port
 * 1 USB 3.0 Port, A
 
-_See more at _[_Nvidia's Website_](http://www.nvidia.com/object/jetson-tk1-embedded-dev-kit.html)
+_See more at \_\__\[\_Nvidia's Website_\]\([http:\/\/www.nvidia.com\/object\/jetson-tk1-embedded-dev-kit.html](http://www.nvidia.com/object/jetson-tk1-embedded-dev-kit.html)\)
 
 #### Connecting the Jetson TK1 to the Pixhawk
 
