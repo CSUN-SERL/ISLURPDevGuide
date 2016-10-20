@@ -1,10 +1,10 @@
 # Summary
 
-The identification of a vehicle in the physical world vs one in a computer database is an important distinction. This section will cover naming conventions for the initialization, organization, and usage of vehicles.
+The identification of a vehicle in the physical world vs one in a computer database is an important distinction. This section will cover the naming conventions for the initialization, organization, and usage of vehicles.
 
 # Organization
 
-Internally, the ground station will assign a vehicle a number in order to keep track of it. The number will be what the computer refers to whenever it needs to give a command to a specific vehicle. Externally, humans should refer to vehicles by both their type and relative number in the computer database, i.e Quad1, Octo3, UGV10, VTOL2, when speaking to each other to prevent confusion. When interfacing with the NAO robot, the operator should have the option to provide the NAO robot with either the internal or external ID to execute a command.
+Internally, the ground station will assign a vehicle a number within a range in order to keep track of it. The number will be what the computer refers to whenever it needs to give a command to a specific vehicle. Externally, humans should refer to vehicles by both their type and relative number in the computer database, such as Quad1, Octo3, UGV10, or VTOL2, when speaking to each other to prevent confusion. When interfacing with the NAO robot, the operator should have the option to provide the NAO robot with either the internal or external ID to execute a command.
 
 ### Unmanned Ground Vehicle \(UGV\)
 
