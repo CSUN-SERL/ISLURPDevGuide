@@ -13,7 +13,7 @@
     * [Quadrotor UAV](quadrotor-uav.md)
     * [Octorotor UAV](octorotor-uav.md)
     * [VTOL UAV](verticle-takeoff-and-landing.md)
-    * [Husky Ground Vehicle](husky-ground-vehicle.md)
+    * [Husky UGV](husky-ground-vehicle.md)
 * [Machine Learning](machine-learning.md)
     * [Object Detection](object-detection.md)
 * [Ground Control Station](ground-control-station.md)

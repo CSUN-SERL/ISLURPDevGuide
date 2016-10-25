@@ -4,6 +4,13 @@ The FireFly6 is the primary Vertical Takeoff and Landing \(VTOL\) aircraft imple
 
 ## Tuning
 
+* RC Channel : Pitch \[\]
+
+* RC Channel : Roll \[\]
+
+* RC Channel : Yaw \[\]
+
+
 For the complete setup and calibration manual can be found [here](https://dl.dropboxusercontent.com/u/35788481/Website%20Manuals/FireFLY6%20with%20AvA%20Onboard%20Manual.pdf)
 
 Basic tuning can be found [here](https://pixhawk.org/platforms/vtol/birdseyeview_firefly)

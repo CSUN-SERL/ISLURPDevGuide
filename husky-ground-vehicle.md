@@ -1,4 +1,4 @@
-## Husky Ground Vehicle Summary
+## Husky Summary
 
-The Husky unmanned ground vehiclee \(UGV\).
+The Husky unmanned ground vehiclee \(UGV\) is the
 
