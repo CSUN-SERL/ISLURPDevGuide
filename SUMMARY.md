@@ -11,8 +11,12 @@
     * [Architecture Overview](architecture-overview.md)
 * [Live Vehicle Integration](live-vehicle-integration.md)
     * [Quadrotor UAV](quadrotor-uav.md)
+    * [Octorotor UAV](octorotor-uav.md)
+    * [VTOL UAV](verticle-takeoff-and-landing.md)
+    * [Husky UGV](husky-ground-vehicle.md)
 * [Machine Learning](machine-learning.md)
     * [Object Detection](object-detection.md)
 * [Ground Control Station](ground-control-station.md)
     * [Styling](styling.md)
+    * [Vehicle Naming Convention](vehicle-naming-convention.md)
 
