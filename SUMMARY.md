@@ -5,6 +5,7 @@
     * [Tools and Resources](tools-and-resources.md)
     * [Development Environment Setup](development-environment-setup.md)
         * [General Setup](general-setup.md)
+        * [IDE Setup](ide-setup.md)
         * [Jetson TK1](jetson-tk1.md)
         * [Husky](husky.md)
     * [Building the code](building-the-code.md)
@@ -19,4 +20,3 @@
 * [Ground Control Station](ground-control-station.md)
     * [Styling](styling.md)
     * [Vehicle Naming Convention](vehicle-naming-convention.md)
-
