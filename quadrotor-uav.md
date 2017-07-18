@@ -44,3 +44,46 @@ For Motive Tracker setup, ensure that the yaw is pointing in the right direction
 
 For details on working with GPS Coordinates, see [here](http://www.movable-type.co.uk/scripts/latlong.html).
 
+# **Live Drone Testing from the GCS**
+
+The following steps are required in order to initialize the drone, gcs, motion capture software, and mavros.
+
+1. Make sure that the Jestson, motion capture, and the GCS are all on the same wireless network. In the case of SERL developers this will probably be "SERL GCS 5Ghz."
+   1. If a computer is not connected to the correct internet, it may be necessary to restart before proceeding.
+2. Setup the Motion capture server
+   1. Make sure all the cameras are plugged in via usb to a hub. If there is mor ethan one hub, make sure they are sinked with each other by connecting a wire to the "Input" of one and the "Output" of the other. Then make sure the computer is connected to the cameras with an "A to B USB Cable."
+   2. Open the motive software and go to View -&gt; Camera Calibration. Proceed to then wave the wand to calibrate the cameras and set the ground plane.
+   3. Once calibration is completed, go to View -&gt; Datastreaming
+      1. Check "broadcast frame data"
+      2. Double click on the local interface to double check that it has the correct ip address.
+   4. Define the rigid body by moving the vehicle into the cameras view and highlighing the illuminated points. Right click, create a rigid body, and go to properties in order to rename the vehicle "quad2"
+3. Setup the GCS and Jetson
+   1. type "ntpq -c lpeer" into the terminal and check to make sure there is a \* next to the IP address. This means the GCS is synced properly with the system.
+   2. run ./mocap\_namespace
+   3. in a separate terminal, run ./throttle\_namespace
+   4. Now the mocap data will be streaming to the GCS at a manageable 25Hz.
+   5. Open a third terminal and SSH into the Jetson so we can call the bootup sequence. ./ssh\_jetson
+   6. check the date using the command "date" and make sure it is the same. If not, restart.
+
+   7. at this point, make sure the controller for the drone is turned on a ready to assume manual control of the drone if a complication arises during the flight. This way nobody is injured and the drone is not destroyed in a crash.
+
+   8. run ./launch\_mavros_\__namespace in order to begin the flight sequence.
+
+   9. run the following commands in a new terminal to display the position and orientation of the drone from the mocap system and the drones internal sensors:
+
+      1. rostopic echo V2000/mavros/mocap/pose
+
+      2. rostopic echo V2000/mavros/local\_position/pose
+
+   10. Now that the system is properly displaying data and is sharing data, the flight node can be run: 
+
+       1. rosrun vehicle uav\_control\_test\_node
+
+   11. After a few seconds, the drone should begin its preplanned flight procedures.
+
+
+
+
+
+
+
